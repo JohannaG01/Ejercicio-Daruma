@@ -1,0 +1,41 @@
+# Ignore IDE files
+.idea/
+.bsp/
+/.idea_modules
+
+# Ignore Play! working directory #
+bin/
+/db
+.eclipse
+/lib/
+/logs/
+/modules
+/project/project
+/project/target
+/target
+tmp/
+test-result
+server.pid
+*.eml
+/dist/
+.cache
+
+# Ignore OS files
+.DS_Store
+
+/RUNNING_PID
+*.class
+*.log
+
+# vscode
+.vscode/
+
+# metals
+.bloop
+.metals/
+.ammonite/
+metals.sbt
+metals/project/
+null
+
+conf/firebase-key-dev.json
