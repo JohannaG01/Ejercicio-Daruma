@@ -1,6 +1,8 @@
 package Model
 
-abstract class Bando (var tesoro: Int = 0, var reserva: Int = 0){
+abstract class Bando{
+  var tesoro: Int
+  var reserva: Int
 
   def sumarTesoro(monto: Int):Unit = {
     tesoro+= monto

@@ -2,8 +2,8 @@ import Model.{Artefacto, BandoSur, CollarDivino, EspadaDelDestino, LibroDeHechiz
 import org.scalatest.funsuite.AnyFunSuite
 
 class CapoTest extends AnyFunSuite{
-  val bando = new BandoSur()
-  val rolandoTest = new Rolando(bando = bando)
+  val bando = BandoSur
+  val rolandoTest = new Rolando
 
   def verificarStatHechiceria(valor: Int): Unit ={
       assert(rolandoTest.getValorHechiceria() === valor)
@@ -14,7 +14,7 @@ class CapoTest extends AnyFunSuite{
   }
 
   def verificarStatConArtefacto(artefacto: Artefacto, valorLucha: Int, valorHechiceria: Int): Unit={
-    rolandoTest.agregarArtefacto(artefacto)
+    artefacto.encontrado(rolandoTest)
     verificarStatLucha(valorLucha)
     verificarStatHechiceria(valorHechiceria)
   }
@@ -42,7 +42,7 @@ class CapoTest extends AnyFunSuite{
   }
 
   test("Encontrar un elemento"){
-    rolandoTest.encontrarElemento(new ViejoSabio())
+    new ViejoSabio().encontrado(rolandoTest)
     verificarStatHechiceria(7)
     verificarStatLucha(8)
   }

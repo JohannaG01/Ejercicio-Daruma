@@ -1,5 +1,5 @@
 package Model
 
-abstract class Elemento {
-  def obtenerRecompensa(capo: Capo, bando: Bando)
+abstract class Elemento extends Encontrable{
+  def encontrado(capo: Capo)
 }

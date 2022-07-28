@@ -2,8 +2,8 @@ import Model.{Armadura, Artefacto, BandoSur, Bendicion, CollarDivino, CotaDeMall
 import org.scalatest.funsuite.AnyFunSuite
 
 class ArtefactoTest extends AnyFunSuite {
-  val bando = new BandoSur()
-  val rolandoTest = new Rolando(bando = bando)
+  val bando = BandoSur
+  val rolandoTest = new Rolando
 
   def verificarStatHechiceria(artefacto: Artefacto,valor: Int): Unit ={
     assert(artefacto.getValorHechiceria(rolandoTest) == valor)
@@ -49,9 +49,9 @@ class ArtefactoTest extends AnyFunSuite {
     verificarStatLucha(new EspejoFantastico(), 0)
   }
   test("Estadistica Espejo Fantastico capo con artefactos"){
-    rolandoTest.agregarArtefacto(new EspadaDelDestino())
-    rolandoTest.agregarArtefacto(new LibroDeHechizos())
-    verificarStatHechiceria(new EspejoFantastico(), 0)
-    verificarStatLucha(new EspejoFantastico(), 3)
+    new EspadaDelDestino().encontrado(rolandoTest)
+    new LibroDeHechizos().encontrado(rolandoTest)
+    verificarStatHechiceria(new EspejoFantastico(), 5)
+    verificarStatLucha(new EspejoFantastico(), 0)
   }
 }

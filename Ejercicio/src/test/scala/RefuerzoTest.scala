@@ -2,8 +2,8 @@ import Model.{BandoSur, Bendicion, CotaDeMalla, Hechizo, Refuerzo, Rolando}
 import org.scalatest.funsuite.AnyFunSuite
 
 class RefuerzoTest extends AnyFunSuite{
-  val bando = new BandoSur()
-  val rolandoTest = new Rolando(bando = bando)
+  val bando = BandoSur
+  val rolandoTest = new Rolando
 
   def verificarStatHechiceria(refuerzo: Refuerzo, valor: Int): Unit ={
     assert(refuerzo.getValorHechiceria(rolandoTest) == valor)

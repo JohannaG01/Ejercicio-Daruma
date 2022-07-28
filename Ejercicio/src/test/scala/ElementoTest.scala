@@ -2,8 +2,8 @@ import Model.{BandoSur, Cofre, ComuloCarbon, Rolando, ViejoSabio}
 import org.scalatest.funsuite.AnyFunSuite
 
 class ElementoTest extends AnyFunSuite {
-  val bando = new BandoSur()
-  val rolandoTest = new Rolando(bando = bando)
+  val bando = BandoSur
+  val rolandoTest = new Rolando
 
   def verificarStatTesoro(valor: Int): Unit ={
     assert(bando.tesoro === valor)
@@ -22,19 +22,19 @@ class ElementoTest extends AnyFunSuite {
   }
 
   test("Verificar encontrar cofre"){
-    rolandoTest.encontrarElemento(new Cofre())
-    verificarStatTesoro(100)
-    verificarStatRecurso(0)
-  }
-
-  test("Verificar encontrar comulo de carbon"){
-    rolandoTest.encontrarElemento(new ComuloCarbon())
-    verificarStatTesoro(100)
+    new Cofre().encontrado(rolandoTest)
+    verificarStatTesoro(200)
     verificarStatRecurso(50)
   }
 
+  test("Verificar encontrar comulo de carbon"){
+    new ComuloCarbon().encontrado(rolandoTest)
+    verificarStatTesoro(200)
+    verificarStatRecurso(100)
+  }
+
   test("Verificar encontrar viejo sabio"){
-    rolandoTest.encontrarElemento(new ViejoSabio())
+    new ViejoSabio().encontrado(rolandoTest)
     verificarStatLucha(4)
     verificarStatHechiceria(2)
   }

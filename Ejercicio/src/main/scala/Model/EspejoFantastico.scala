@@ -11,6 +11,7 @@ class EspejoFantastico(valorLucha: Int = 0, valorHechiceria: Int = 0) extends Ar
       case Nil => None
       case listArtefactos @ _ => Some(listArtefactos.maxBy(x => x.getValorLucha(capo) + x.getValorHechiceria(capo)))
     }
+
   }
 
   override def getValorLucha(capo: Capo): Int = {
@@ -18,6 +19,7 @@ class EspejoFantastico(valorLucha: Int = 0, valorHechiceria: Int = 0) extends Ar
       case Some(valor: Int) => valor
       case None => valorLucha
     }
+    getMejorArtefacto(capo).map(_.getValorLucha(capo)).getOrElse(valorLucha)
   }
 
   override def getValorHechiceria(capo: Capo): Int = {

@@ -1,7 +1,6 @@
 package Model
 
-class Cofre extends Elemento{
-  val ORO_AGREGAR = 100
+class Cofre(oro: Int = 100) extends Elemento{
 
-  override def obtenerRecompensa(capo: Capo, bando: Bando): Unit = bando.sumarTesoro(ORO_AGREGAR)
+  override def encontrado(capo: Capo): Unit = capo.bando.sumarTesoro(oro)
 }
